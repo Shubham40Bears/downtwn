@@ -472,31 +472,44 @@ ol.carousel-indicators li {
     color: black;
 }
 .menu-section{
-    height: 0;
+    height: 80%;
     position: fixed;
-    bottom: 0;
+    bottom: -100%;
     left: 0;
     right: 0;
     z-index: 9;
-    background: white;
+    background: black;
+    color: white;
     transition: 600ms;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     box-shadow: 6px 4px 13px 7px #0000008a;
 }
 .menu-section.active{
-    height: 80%;
+    bottom: 0;
 }
 .menu-section .navbar-nav{
     padding: 1rem 2rem;
 }
+.menu-logo{
+    position: absolute;
+    bottom: -2rem;
+    right: -4rem;
+    opacity: 0.2;
+    filter: brightness(0) invert(1);
+}
 .divider{
     width: 5rem;
     height: 0.3rem;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgb(239 239 239 / 38%);
     border-radius: 2px;
     margin: 0.6rem auto;
   }
+  a.nav-link.menu-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 .cart-item{
     display: flex;
     align-items: stretch;

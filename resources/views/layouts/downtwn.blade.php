@@ -80,23 +80,26 @@
         </header>
         <div class="menu-section">
             <div class="divider"></div>
+            <div>
+                <img src="{{asset('images/dl.webp')}}" class="img-fluid menu-logo" />
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link aos-init aos-animate" data-aos="flip-up" href="/"><span>HOME</span><i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a class="nav-link menu-link" data-aos="flip-up" href="/"><span>HOME</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link aos-init aos-animate" data-aos="flip-up" href="/"><span>ABOUT</span><i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a class="nav-link menu-link" data-aos="flip-up" href="/"><span>ABOUT</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link aos-init aos-animate" data-aos="flip-up" href="/shop"><span>SHOP</span><i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a class="nav-link menu-link" data-aos="flip-up" href="/shop"><span>SHOP</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link aos-init aos-animate" data-aos="flip-up" href="/cart"><span>CART</span><i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a class="nav-link menu-link" data-aos="flip-up" href="/cart"><span>CART</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
                     <li class="nav-item d-lg-none">
-                        <a class="nav-link aos-init aos-animate" data-aos="flip-up" href="/contact"><span>HELP &amp; SUPPORT</span><i class="fas fa-long-arrow-alt-right"></i></a>
+                        <a class="nav-link menu-link" data-aos="flip-up" href="/contact"><span>HELP &amp; SUPPORT</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
                 </ul>
+            </div>
         </div>
 
         <main class="">
