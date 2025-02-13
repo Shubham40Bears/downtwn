@@ -58,7 +58,7 @@
                             </div>
                             <div class="btn-section">
                                 <a href="javascript:void(0)" class="btn btn-dwtwn mt-2 shine-button" id="addToCart">add to cart</a>
-                                <a href="javascript:void(0)" class="btn btn-dwtwn mt-2 shine-button {{route('addtocart')}}">buy now</a>
+                                <!-- <a href="javascript:void(0)" class="btn btn-dwtwn mt-2 shine-button {{route('addtocart')}}">buy now</a> -->
                             </div>
 						
 						
