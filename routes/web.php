@@ -15,7 +15,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [LandingPageController::class, 'index']);
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
-Route::get('/category/{category_slug?}', [LandingPageController::class, 'index'])->name('category');
+Route::get('/category/{category_slug?}', [ShopController::class, 'getProductByCategory'])->name('category');
 Route::get('/p/d/{product_id}/{product_slug?}', [ShopController::class, 'get'])->name('productDetails');
 Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('addtocart');
 Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
