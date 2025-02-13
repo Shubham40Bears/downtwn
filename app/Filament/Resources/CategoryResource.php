@@ -31,7 +31,15 @@ class CategoryResource extends Resource
             TextColumn::make('id')->sortable(),
             TextColumn::make('name')->sortable()->searchable(),
             TextColumn::make('slug')->sortable(),
-        ]);
+        ])
+        ->filters([])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]);
     }
 
     public static function getPages(): array
