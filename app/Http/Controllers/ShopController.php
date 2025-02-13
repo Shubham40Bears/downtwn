@@ -11,4 +11,9 @@ class ShopController extends Controller
         $product = Product::byId($product_id);
         return view('shop.productDetails', compact('product'));
     }
+
+    public function index(){
+        $products = Product::all();
+        return view('shop.shop', compact('products'));
+    }
 }
