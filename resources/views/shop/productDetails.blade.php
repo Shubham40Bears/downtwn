@@ -29,7 +29,7 @@
 					<div class="details col-md-6">
                         <p class="m-0">Downtwn.in</p>
 						<h3 class="product-title nexa-bold">{{$product->name}}</h3>
-                        <p class="product-description">{{$product->description}}</p>
+                        <p class="product-description">{!! $product->description !!}</p>
 						@if($product->sales_price) 
                                 <p class="mt-2">
                                     <del class="text-muted">₹{{ number_format($product->price, 2) }}</del> 
