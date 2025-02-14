@@ -55,8 +55,8 @@
             </div>
         </div>
         <header class="header-section">
-            <div class="container">
-                <div class="row align-items-center">
+            <div class="container-fluid">
+                <div class="row align-items-center justify-content-between">
                     <!-- Hamburger Menu (Left) -->
                     <div class="col-4 col-sm-2 pl-0">
                         <button class="navbar-toggler left-icon-container" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" id="menu" aria-label="Toggle navigation">
@@ -65,12 +65,12 @@
                     </div>
                     
                     <!-- Logo (Center) -->
-                    <div class="col-4 text-center">
+                    <div class="col-lg-3 col-4 text-center">
                         <a href="/" class="text-white h2"><img src="{{asset('images/dl.webp')}}" class="img-fluid logo-head" /></a>
                     </div>
                     
                     <!-- Cart Icon (Right) -->
-                    <div class="col-4 text-end icon-container">
+                    <div class="col-2 text-end icon-container">
                         <a href="{{route('cart')}}" class="text-white">
                             <i class="fa-solid fa-cart-shopping"></i>
                         </a>
@@ -81,21 +81,21 @@
         <div class="menu-section">
             <div class="divider"></div>
             <div>
-                <img src="{{asset('images/dl.webp')}}" class="img-fluid menu-logo" />
+                <img src="{{asset('images/dl.webp')}}" class="img-fluid menu-logo d-lg-none" />
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item d-lg-none">
+                    <li class="nav-item">
                         <a class="nav-link menu-link" data-aos="flip-up" href="/"><span>HOME</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
-                    <li class="nav-item d-lg-none">
+                    <li class="nav-item">
                         <a class="nav-link menu-link" data-aos="flip-up" href="/"><span>ABOUT</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
-                    <li class="nav-item d-lg-none">
+                    <li class="nav-item">
                         <a class="nav-link menu-link" data-aos="flip-up" href="/shop"><span>SHOP</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
-                    <li class="nav-item d-lg-none">
+                    <li class="nav-item">
                         <a class="nav-link menu-link" data-aos="flip-up" href="/cart"><span>CART</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
-                    <li class="nav-item d-lg-none">
+                    <li class="nav-item">
                         <a class="nav-link menu-link" data-aos="flip-up" href="/contact"><span>HELP &amp; SUPPORT</span><i class="fas fa-long-arrow-alt-right"></i></a>
                     </li>
                 </ul>
