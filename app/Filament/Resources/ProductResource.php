@@ -27,22 +27,22 @@ class ProductResource extends Resource
         return $form->schema([
             TextInput::make('name')->required()->unique(ignoreRecord: true),
             TextInput::make('slug')->disabled()->dehydrated(),
-            // Forms\Components\RichEditor::make('description')
-            // ->label('Description')
-            // ->required()
-            // ->toolbarButtons([
-            //     'bold',
-            //     'italic',
-            //     'underline',
-            //     'strike',
-            //     'bulletList',
-            //     'orderedList',
-            //     'link',
-            //     'codeBlock',
-            //     'blockquote',
-            // ])
-            // ->columnSpanFull()->nulable(),
-            Forms\Components\Textarea::make('description')->nullable(),
+            Forms\Components\RichEditor::make('description')
+            ->label('Description')
+            ->required()
+            ->toolbarButtons([
+                'bold',
+                'italic',
+                'underline',
+                'strike',
+                'bulletList',
+                'orderedList',
+                'link',
+                'codeBlock',
+                'blockquote',
+            ])
+            ->columnSpanFull()->nulable(),
+            // Forms\Components\Textarea::make('description')->nullable(),
             TextInput::make('price')->required()->numeric(),
             TextInput::make('sales_price')->nullable()->numeric(),
             Select::make('category_id')
