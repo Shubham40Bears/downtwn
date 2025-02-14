@@ -41,7 +41,7 @@ class ProductResource extends Resource
                 'codeBlock',
                 'blockquote',
             ])
-            ->columnSpanFull()->nulable(),
+            ->columnSpanFull(),
             // Forms\Components\Textarea::make('description')->nullable(),
             TextInput::make('price')->required()->numeric(),
             TextInput::make('sales_price')->nullable()->numeric(),
