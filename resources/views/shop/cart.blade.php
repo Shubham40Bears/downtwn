@@ -234,7 +234,7 @@ const registerOrderProcessEvents = (processType, amount) => {
             };
         axios.post("{{route('confirmOrder')}}", formData).then(response => {
             console.log('order placed');
-            registerOrderProcessEvents('Purchase Event', total_price)
+            registerOrderProcessEvents('Purchase Event', parseInt($('.totamt').text().replace(/[^\d]/g, ''), 10)/100)
         });
     }
      $(document).on('submit','#checkoutForm',function(e){
