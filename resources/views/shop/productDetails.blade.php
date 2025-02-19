@@ -105,6 +105,7 @@
                     };
             axios.post("{{route('addtocart')}}", formData)
                 .then(response => {
+                    generateAddToCartEvent();
                     toastr.success('Product added to cart.', 'Done');
 
                 })
@@ -113,6 +114,55 @@
                     console.error(error);
                 })
         });
+        /**
+         * Add to cart meta event
+         */
+        const generateAddToCartEvent = () =>{
+            const pixelId = "{{ env('META_PIXEL_ID') }}";
+            const accessToken = "{{ env('META_ACCESS_TOKEN') }}";
+
+            const endpoint = `https://graph.facebook.com/v19.0/${pixelId}/events`;
+
+            const data = {
+                "data": [
+                    {
+                        "event_name": "Add To Cart",
+                        "event_time": Math.floor(Date.now() / 1000), // Current timestamp
+                        "action_source": "website",
+                        "user_data": {
+                            "em": [
+                                "{{ hash('sha256', 'customer@example.com') }}" // Hashed email
+                            ],
+                            "ph": [
+                                null
+                            ]
+                        },
+                        "custom_data": {
+                            "currency": "INR",
+                            "value": "{{$product->price}}"
+                        },
+                        "original_event_data": {
+                            "event_name": "Add To Cart",
+                            "event_time": Math.floor(Date.now() / 1000)
+                        }
+                    }
+                ],
+                "access_token": accessToken
+            };
+
+            axios.post(endpoint, data, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                console.log("Meta Pixel Event Response:", response.data);
+            })
+            .catch(error => {
+                console.error("Error sending event to Meta Pixel:", error.response ? error.response.data : error.message);
+                alert("Error sending event. Check console.");
+            });
+        }
     });
 </script>
 @endsection

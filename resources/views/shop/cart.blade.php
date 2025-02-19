@@ -164,6 +164,7 @@
 
     $('#checkOutBtn').click(function(){
         $('.billing').toggleClass('active');
+        registerOrderProcessEvents('Initiate Checkout', $('#cart-total').text());
     });
     $('.goback').click(function(){
         $('.billing').toggleClass('active');
@@ -171,6 +172,52 @@
 
     updateTotal();
 });
+const registerOrderProcessEvents = (processType, amount) => {
+    const pixelId = "{{ env('META_PIXEL_ID') }}";
+            const accessToken = "{{ env('META_ACCESS_TOKEN') }}";
+
+            const endpoint = `https://graph.facebook.com/v19.0/${pixelId}/events`;
+
+            const data = {
+                "data": [
+                    {
+                        "event_name": processType,
+                        "event_time": Math.floor(Date.now() / 1000), // Current timestamp
+                        "action_source": "website",
+                        "user_data": {
+                            "em": [
+                                "{{ hash('sha256', 'customer@example.com') }}" // Hashed email
+                            ],
+                            "ph": [
+                                null
+                            ]
+                        },
+                        "custom_data": {
+                            "currency": "INR",
+                            "value": amount
+                        },
+                        "original_event_data": {
+                            "event_name": processType,
+                            "event_time": Math.floor(Date.now() / 1000)
+                        }
+                    }
+                ],
+                "access_token": accessToken
+            };
+
+            axios.post(endpoint, data, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            .then(response => {
+                console.log("Meta Pixel Event Response:", response.data);
+            })
+            .catch(error => {
+                console.error("Error sending event to Meta Pixel:", error.response ? error.response.data : error.message);
+                alert("Error sending event. Check console.");
+            });
+};
 </script>
 @if($products)
 <script>
@@ -187,6 +234,7 @@
             };
         axios.post("{{route('confirmOrder')}}", formData).then(response => {
             console.log('order placed');
+            registerOrderProcessEvents('Purchase Event', total_price)
         });
     }
      $(document).on('submit','#checkoutForm',function(e){
@@ -205,6 +253,7 @@
                         handler: function (response) {
                             localStorage.setItem('rzp_dt', JSON.stringify(response));
                             saveCheckoutData(response);
+                            registerOrderProcessEvents('Add Payment Info Event', data.amount)
                         },
                         prefill: {
                             name: $('#fullName').val(),
