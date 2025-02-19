@@ -164,7 +164,7 @@
 
     $('#checkOutBtn').click(function(){
         $('.billing').toggleClass('active');
-        registerOrderProcessEvents('Initiate Checkout', $('#cart-total').text());
+        registerOrderProcessEvents('Initiate Checkout', parseInt($('#cart-total').text().replace(/[^\d]/g, ''), 10)/100);
     });
     $('.goback').click(function(){
         $('.billing').toggleClass('active');
