@@ -233,8 +233,9 @@ const registerOrderProcessEvents = (processType, amount) => {
                 total_price: $('.totamt').text()
             };
         axios.post("{{route('confirmOrder')}}", formData).then(response => {
-            console.log('order placed');
-            registerOrderProcessEvents('Purchase Event', parseInt($('.totamt').text().replace(/[^\d]/g, ''), 10)/100)
+            // console.log(response);
+            registerOrderProcessEvents('Purchase Event', parseInt($('.totamt').text().replace(/[^\d]/g, ''), 10)/100);
+            window.location.href = `/thankyou/${response.data.order.id}`;
         });
     }
      $(document).on('submit','#checkoutForm',function(e){

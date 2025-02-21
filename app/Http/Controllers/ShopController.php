@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Orders;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -63,5 +64,9 @@ class ShopController extends Controller
         }
     
         return view('shop.category', ['products' => $category->products, 'categoryName' => $category->name]);
-    }    
+    }  
+    public function thankyou(Request $request, $order_id) {
+        $order = Orders::where('id', $order_id)->first();
+        return view('thankyou', compact('order'));
+    }  
 }

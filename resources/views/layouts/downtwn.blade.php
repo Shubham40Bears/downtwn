@@ -24,6 +24,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css">
 
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <!-- Meta Pixel Code -->
@@ -36,11 +37,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '651018850718704');
+    fbq('init', '1302845930981074');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=651018850718704&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1302845930981074&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
      <!-- heatmap start -->
@@ -162,6 +163,7 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <script>
         $(document).on('click','#menu', function(){
             $('.menu-section').toggleClass('active');

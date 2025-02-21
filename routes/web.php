@@ -21,3 +21,4 @@ Route::post('/add-to-cart', [ProductController::class, 'addToCart'])->name('addt
 Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
 Route::post('/payment', [ProductController::class, 'initPayment'])->name('initPayment');
 Route::post('/confirm-order', [ProductController::class, 'confirmOrder'])->name('confirmOrder');
+Route::get('/thankyou/{order_id}', [ShopController::class, 'thankyou'])->name('thankyou');

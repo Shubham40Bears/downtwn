@@ -97,16 +97,18 @@
                 productId: productid,
                 quantity: $('#quantity').text()
             };
-            toastr.options = {
-                        "closeButton": true,
-                        "progressBar": true,
-                        "positionClass": "toast-top-right",
-                        "timeOut": "3000",
-                    };
             axios.post("{{route('addtocart')}}", formData)
                 .then(response => {
+                    new Noty({
+                        type: "success", // success, error, warning, info
+                        layout: "topRight", // topLeft, topCenter, bottomRight, etc.
+                        text: "Product added to cart",
+                        timeout: 3000, // Auto-dismiss in 5 seconds
+                        progressBar: true,
+                        closeWith: ["click", "button"],
+                        theme: "metroui" // Themes: "metroui", "sunset", "relax", etc.
+                    }).show();
                     generateAddToCartEvent();
-                    toastr.success('Product added to cart.', 'Done');
 
                 })
                 .catch(error => {
